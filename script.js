@@ -68,15 +68,6 @@ function playRound (playerSelection, computerSelection) {
 
 }
 
-/* testing logic of playRound 
-
-let playerSelection = "paper";
-let computerSelection = computerPlay();
-console.log("You played: " + playerSelection);
-console.log("Computer played: " + computerSelection);
-console.log(playRound(playerSelection, computerSelection));
-*/
-
 function game() {
 
     let playerSelection;
