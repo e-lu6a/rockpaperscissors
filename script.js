@@ -128,10 +128,14 @@ const paperButton = document.querySelector('#paper');
 
 function throwHand (e) {
     if (rounds >= 5) {
-        readout.innerHTML = "start over!";
+        readout.innerHTML += "start over!";
     } else {
-    readout.innerHTML += "<p>" + e.target.id + "</p>";
         rounds++;
+        playerSelection = e.target.id;
+        computerSelection = computerPlay();
+
+        readout.innerHTML += "<p>You played: " + e.target.id + " Computer played: " + computerSelection + " " + playRound(playerSelection, computerSelection) + "</p>";
+        
     }
 }
 

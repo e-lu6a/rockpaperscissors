@@ -14,15 +14,21 @@ html {
     https://css-tricks.com/body-border/
     */
 
-    height: 100%;
+    height: calc(100%);
+    background-color: white;
 
 }
 
 body {
-    border: 20px solid white;
-    min-height: 100%;
-    padding: 200px;
+    min-height: calc(100% - 190px);
+
     background-color: var(--pink2);
+    border: 20px solid white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 150px;
+    align-items: center;
 
     text-align: center;
 
@@ -47,5 +53,4 @@ body {
 }
 
 .credits {
-    position: absolute;
 }
