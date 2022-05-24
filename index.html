@@ -5,16 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Rock Paper Scissors</title>
-
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
-    <h1>Rock Paper Scissors</h1>
-    <p>This game is played inside the browser console.</p>
-    <p>
+      <h1>Rock Paper Scissors</h1>
+      <p>This game is played inside the browser console.</p>
+      <p>
       To start the game, type "game()" into the console and hit enter. Each game
       is five rounds. If you want to quit early, just hit cancel when I ask you
       for your throw.
-    </p>
+      </p>
+    
+      <div class="buttons">
+        <img id="rock" src="/images/rock.svg" alt="rock"></img>
+        <img id="scissors" src="/images/paper.svg" alt="paper"></img>
+        <img id="paper" src="/images/scissors.svg" alt="scissors"></img>
+      </div>
+
+      <div class="readout"></div>
+
+      <div class="credits">
+        <a href="https://www.vecteezy.com/free-vector/rock-paper-scissors"
+          >Rock Paper Scissors Vectors by Vecteezy</a
+        >
+  </div>
+
+    <script src="script.js"></script>
   </body>
 </html>

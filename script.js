@@ -3,11 +3,19 @@ let throws = ["rock", "paper", "scissors"];
 let playerWins = 0;
 let computerWins = 0;
 
+let rounds = 0;
+
+const readout = document.querySelector(".readout");
+
+// return either rock, paper, or scissors at random
 function computerPlay() {
     let x = Math.floor(Math.random()*3)
     return throws[x];
 }
 
+// pit playerSelection against computerSelection
+// return result as a string
+// also increment player & computer scores
 function playRound (playerSelection, computerSelection) {
 
     // make player's choice case insensitive
@@ -68,37 +76,37 @@ function playRound (playerSelection, computerSelection) {
 
 }
 
-/* testing logic of playRound 
-
-let playerSelection = "paper";
-let computerSelection = computerPlay();
-console.log("You played: " + playerSelection);
-console.log("Computer played: " + computerSelection);
-console.log(playRound(playerSelection, computerSelection));
-*/
-
 function game() {
 
     let playerSelection;
     let computerSelection;
 
+    
+
+    // game goes for five rounds
+    // for each round, 
     for (let i = 0; i < 5; i++) {
-        
-        console.log("++++ ROUND " + (i+1) + " ++++");
+
+        readout.textContent = `++++ ROUND ${i+1} ++++`;
+        //console.log("++++ ROUND " + (i+1) + " ++++");
 
         // get each player's throws, and display them
         playerSelection = prompt("Type rock, paper, or scissors: ")
         computerSelection = computerPlay();
 
+         
+         /*
          // if player cancels the dialog without any input
+
          if (playerSelection === null) {
-        console.log("Looks like you ended the game! If you want to play again, just type 'game()' into the console.");
+        readout.textcontent += "Looks like you ended the game! If you want to play again, just type 'game()' into the console.";
         i = 6; 
         break;
-        }
+        }*/
 
-        console.log("You played: " + playerSelection);
-        console.log("Computer played: " + computerSelection);
+        readout.textContent += `You played: ${playerSelecton} \n Computer played: ${computerSelecton}`;
+        // console.log("You played: " + playerSelection);
+        // console.log("Computer played: " + computerSelection);
 
         //evaluate throw, and display results
         console.log("\n"+playRound(playerSelection, computerSelection));
@@ -111,4 +119,27 @@ function game() {
     }
 
     console.log("That's the game! If you want to play again, type 'game()' into the console and hit enter.");
+
 }
+
+const rockButton = document.querySelector('#rock');
+const scissorsButton = document.querySelector('#scissors');
+const paperButton = document.querySelector('#paper');
+
+function throwHand (e) {
+    if (rounds >= 5) {
+        readout.innerHTML += "start over!";
+    } else {
+        rounds++;
+        playerSelection = e.target.id;
+        computerSelection = computerPlay();
+
+        readout.innerHTML += "<p>You played: " + e.target.id + " Computer played: " + computerSelection + " " + playRound(playerSelection, computerSelection) + "</p>";
+        
+    }
+}
+
+// upon player clicks
+rockButton.addEventListener('click', throwHand);
+paperButton.addEventListener('click', throwHand);
+scissorsButton.addEventListener('click', throwHand);
